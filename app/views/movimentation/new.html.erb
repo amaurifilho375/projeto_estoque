@@ -1,0 +1,60 @@
+<%= form_for :@movimentation , url: movimentation_create_show_path , html: {method: "get", role: "form", class: "col-md-8", style: "padding-left: 0px;"} do |f| %>
+
+
+    <% if @movimentation.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@movimentation.errors.count, "error") %> prohibited this report from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @movimentation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+
+
+    
+    <div class="form-group">
+      <%= f.label :type, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :type, :class => 'form-control' %>
+      </div>
+     
+    </div>
+    <div class="form-group">
+      <%= f.label :date, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :date, placeholder: 'Ex.: 00/00/0000', class: "form-control ",  mask: "99/99/9999 99:99"  %>
+        
+      </div>
+      
+    
+      
+
+
+    </div>
+    <div class="form-group">
+      <%= f.label :quantities, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :quantities, :class => 'form-control' %>
+      </div>
+      
+    </div>
+   
+    
+  
+  
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit "salvar", :class => 'btn btn-primary' %>
+        
+      </div>
+    </div>
+  
+  
+  <%end%>
